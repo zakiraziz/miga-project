@@ -24,3 +24,14 @@ python jarvis.py
 Jarvis will listen for your commands, and you can modify it to open websites, search the web, or even perform more complex tasks!
 
 # miga-project
+📚 Learning & Customization
+You can further customize Jarvis by adding:
+
+Custom commands: Make Jarvis open specific websites or apps based on voice input.
+Integration with APIs: Enhance Jarvis by integrating APIs like weather forecasts, news, or personal reminders.
+🛠️ Future Improvements
+Wake Word Detection: Implement a wake word so Jarvis only responds when it's called.
+Improved Speech Recognition: Use other speech-to-text engines like Google Speech API for better accuracy.
+AI Integration: Integrate with natural language processing models to make Jarvis smarter.
+🌟 Contributions
+Feel free to fork this project, submit issues, or create pull requests to make Jarvis better!
