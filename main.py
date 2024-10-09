@@ -2,6 +2,7 @@ import speech_recognition as sr
 import webbrowser
 import pyttsx3
 
+# Initialize recognizer and text-to-speech engine
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 
@@ -9,23 +10,32 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
+
+def processCommand(c):
+    print(c)
+    pass
+
 if __name__ == "__main__":
-    speak("Initializing Jarivis....")
+    speak("Initializing Jarvis....")
     while True:
-        # Listen for the wake word "jarvis"  
-        # obtain audio from the microphone
+        # Obtain audio from the microphone
         r = sr.Recognizer()
-        with sr.Microphone() as source:
-            print("Listening....")
-            audio = r.listen(source)
 
-        command = r.recognize_sphinx(audio)
-        print(command)
-
-        # recognize speech using Sphinx
+        print("recognizing..")
         try:
-            print("Sphinx thinks you said " + r.recognize_sphinx(audio))
-        except sr.UnknownValueError:
-            print("Sphinx could not understand audio")
-        except sr.RequestError as e:
-            print("Sphinx error; {0}".format(e))
+            with sr.Microphone() as source:
+                print("Listening....")
+                audio = r.listen(source, timeout=5, phrase_time_limit=5)
+            command = r.recognize_google(audio)
+            if command.lower() == "jarvis":
+                speak("Ya")
+                # listn for commannd
+            with sr.Microphone() as source:
+                print("Listening...")
+                audio = r.listen(source)
+                command = r.recognize_google(audio)
+
+                processCommand(c)
+
+        except Exception as e:
+            print("Error; {0}".format(e))
