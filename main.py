@@ -10,6 +10,7 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
+<<<<<<< HEAD
 def processCommand(command):
     print(f"Processing command: {command}")
     if "open google" in command.lower():
@@ -55,22 +56,43 @@ if __name__ == "__main__":
         print(f"An error occurred: {e}")
 =======
     speak("Initializing Jarivis....")
+=======
+
+def processCommand(c):
+    print(c)
+    pass
+
+if __name__ == "__main__":
+    speak("Initializing Jarvis....")
+>>>>>>> ddabea90fe8dd455222c80e4084cd5c27dbf5d07
     while True:
-        # Listen for the wake word "jarvis"  
-        # obtain audio from the microphone
+        # Obtain audio from the microphone
         r = sr.Recognizer()
-        with sr.Microphone() as source:
-            print("Listening....")
-            audio = r.listen(source)
 
-        command = r.recognize_sphinx(audio)
-        print(command)
-
-        # recognize speech using Sphinx
+        print("recognizing..")
         try:
+<<<<<<< HEAD
             print("Sphinx thinks you said " + r.recognize_sphinx(audio))
         except sr.UnknownValueError:
             print("Sphinx could not understand audio")
         except sr.RequestError as e:
             print("Sphinx error; {0}".format(e))
 >>>>>>> e4061e9a62d557e437f5cee066b161306aed7f55
+=======
+            with sr.Microphone() as source:
+                print("Listening....")
+                audio = r.listen(source, timeout=5, phrase_time_limit=5)
+            command = r.recognize_google(audio)
+            if command.lower() == "jarvis":
+                speak("Ya")
+                # listn for commannd
+            with sr.Microphone() as source:
+                print("Listening...")
+                audio = r.listen(source)
+                command = r.recognize_google(audio)
+
+                processCommand(c)
+
+        except Exception as e:
+            print("Error; {0}".format(e))
+>>>>>>> ddabea90fe8dd455222c80e4084cd5c27dbf5d07
